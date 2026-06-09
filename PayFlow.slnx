@@ -1,0 +1,7 @@
+<Solution>
+  <Project Path="PayFlow.Api/PayFlow.Api.csproj" Id="d4caf801-5884-4bcf-bc12-98ddf126d975" />
+  <Project Path="PayFlow.Application/PayFlow.Application.csproj" Id="f3527e45-14f8-435d-9d2d-26fbb82e9b45" />
+  <Project Path="PayFlow.Domain/PayFlow.Domain.csproj" Id="d720c262-f6c8-4a84-8cff-be65f0c666db" />
+  <Project Path="PayFlow.Infrastructure/PayFlow.Infrastructure.csproj" Id="1a1b829d-b4e1-4590-83e5-7c5b19e83230" />
+  <Project Path="PayFlow.Shared/PayFlow.Shared.csproj" Id="6cee7bf5-3491-48cb-8253-d3cb24178dc5" />
+</Solution>
