@@ -9,5 +9,5 @@ public interface IWithdrawalRepository
     Task<WithdrawalRequest?> GetByIdAsync(long id);
 
     Task<bool> HasOpenRequestAsync(long userId);
-    Task SaveChangeAsync();
+    Task SaveChangesAsync();
 }
