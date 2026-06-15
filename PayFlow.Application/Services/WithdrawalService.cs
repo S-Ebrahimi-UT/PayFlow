@@ -27,7 +27,7 @@ public class WithdrawalService(IWithdrawalRepository withdrawalRepository) : IWi
             UserId = userId
         };
         await withdrawalRepository.AddAsync(withdrawal);
-        await withdrawalRepository.SaveChangeAsync();
+        await withdrawalRepository.SaveChangesAsync();
         return new CreateWithdrawalResponseDto()
         {
             Id = withdrawal.Id
