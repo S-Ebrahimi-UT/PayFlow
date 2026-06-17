@@ -1,6 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using PayFlow.Application.Interfaces;
-using PayFlow.Domain.Entities;
+using PayFlow.Domain.Entities.Withdrawals;
 using PayFlow.Domain.Enums;
 using PayFlow.Infrastructure.Persistence;
 
@@ -28,12 +28,9 @@ public class WithdrawalRepository(PayFlowDbContext dbContext) : IWithdrawalRepos
             };
 
         return await dbContext.WithdrawalRequests.AnyAsync(x =>
-            x.UserId == userId &&
+            x.WalletId == userId &&
             openStatuses.Contains(x.Status));
     }
 
-    public async Task SaveChangesAsync()
-    {
-        await dbContext.SaveChangesAsync();
-    }
+
 }

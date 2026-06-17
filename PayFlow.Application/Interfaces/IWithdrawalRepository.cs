@@ -1,4 +1,4 @@
-﻿using PayFlow.Domain.Entities;
+﻿using PayFlow.Domain.Entities.Withdrawals;
 
 namespace PayFlow.Application.Interfaces;
 
@@ -9,5 +9,4 @@ public interface IWithdrawalRepository
     Task<WithdrawalRequest?> GetByIdAsync(long id);
 
     Task<bool> HasOpenRequestAsync(long userId);
-    Task SaveChangesAsync();
 }

@@ -1,12 +1,13 @@
-﻿using PayFlow.Domain.Enums;
+﻿using PayFlow.Domain.Entities.Wallets;
+using PayFlow.Domain.Enums;
 
-namespace PayFlow.Domain.Entities;
+namespace PayFlow.Domain.Entities.Withdrawals;
 
 public class WithdrawalRequest
 {
     public long Id { get; set; }
-    public long UserId { get; set; }
-
+    public long WalletId { get; set; }
+    public Wallet? Wallet { get; set; }
     public decimal Amount { get; set; }
 
     public decimal Fee { get; set; }
@@ -21,4 +22,9 @@ public class WithdrawalRequest
     public DateTime? ApprovedAt { get; set; }
     public DateTime? RejectedAt { get; set; }
     public DateTime? PaidAt { get; set; }
+    public DateTime? FailedAt { get; set; }
+    private readonly List<WalletTransaction> _walletTransactions = new();
+
+    public IReadOnlyCollection<WalletTransaction> WalletTransactions => _walletTransactions.AsReadOnly();
+
 }

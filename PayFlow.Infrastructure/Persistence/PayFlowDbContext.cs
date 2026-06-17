@@ -1,5 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using PayFlow.Domain.Entities;
+using PayFlow.Domain.Entities.Withdrawals;
 
 namespace PayFlow.Infrastructure.Persistence;
 

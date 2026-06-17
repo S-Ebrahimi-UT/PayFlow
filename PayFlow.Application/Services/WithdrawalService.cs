@@ -1,11 +1,11 @@
 ﻿using PayFlow.Application.DTOs;
 using PayFlow.Application.Interfaces;
-using PayFlow.Domain.Entities;
+using PayFlow.Domain.Entities.Withdrawals;
 using PayFlow.Domain.Enums;
 
 namespace PayFlow.Application.Services;
 
-public class WithdrawalService(IWithdrawalRepository withdrawalRepository) : IWithdrawalService
+public class WithdrawalService(IWithdrawalRepository withdrawalRepository, IUnitOfWork unitOfWork) : IWithdrawalService
 {
     public async Task<CreateWithdrawalResponseDto> CreateWithdrawalAsync(CreateWithdrawalRequestDto request)
     {
@@ -24,10 +24,10 @@ public class WithdrawalService(IWithdrawalRepository withdrawalRepository) : IWi
             Amount = request.Amount,
             CreatedAt = DateTime.UtcNow,
             Status = WithdrawalStatus.Pending,
-            UserId = userId
+            WalletId = userId
         };
         await withdrawalRepository.AddAsync(withdrawal);
-        await withdrawalRepository.SaveChangesAsync();
+        await unitOfWork.SaveChangesAsync();
         return new CreateWithdrawalResponseDto()
         {
             Id = withdrawal.Id
